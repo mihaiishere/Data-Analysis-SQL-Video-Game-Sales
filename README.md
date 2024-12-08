@@ -32,9 +32,9 @@ Let's look at the highest 10 scores first:
 
 Input:
 ```
-select * from game_sales 
-order by sold_copies desc 
-limit 10
+SELECT TOP(10) *
+FROM game_sales
+ORDER BY Sold_Copies DESC;
 ```
 
 Output:
@@ -58,13 +58,19 @@ And now let's check how many games have missing data for the scores.
 
 Input:
 ```
-select count(name) from game_sales
-left join game_scores
-using (name)
-where critic_score is null and user_score is null
+SELECT COUNT(game_sales.Name) AS Count
+FROM game_sales
+LEFT JOIN game_scores ON game_sales.Name = game_scores.Name
+WHERE Critic_Score IS NULL AND User_Score IS NULL;
 ```
 
 Output:
+
+| Count |
+| --- |
+| 17324 |
+
+
 
 ## Critics opinion
 
@@ -72,14 +78,25 @@ Now that we know the most 10 sold games and we have noticed that only a very sma
 
 Input:
 ```
-select year, round(avg(critic_score),2) as avg_critic_score from game_sales
-join game_scores
-using (name)
-group by year
-order by avg_critic_score desc
-limit 10
+SELECT TOP 10 Year, ROUND(AVG(Critic_Score), 2) AS Avg_Critic_Score
+FROM game_sales
+JOIN game_scores ON game_sales.Name = game_scores.Name
+GROUP BY Year
+ORDER BY Avg_Critic_Score DESC;
 ```
 Output:
+| Year	| Avg_Critic_Score
+| ---	| ---
+| 1984	| 9.5
+| 1992	| 8.68
+| 1990	| 8.54
+| 1991	| 8.32
+| 2020	| 8.26
+| 1994	| 8.04
+| 2019	| 7.97
+| 1985	| 7.84
+| 1993	| 7.72
+| 2013	| 7.6
 
 
 Since the average is not the most important point of view when checking the top 10 scores, let's also see how many games were reviewed in that year. We will also look for the top 10 years with atleast 10 titles.
