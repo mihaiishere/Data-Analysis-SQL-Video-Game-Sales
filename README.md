@@ -78,7 +78,7 @@ Now that we know the most 10 sold games and we have noticed that only a very sma
 
 Input:
 ```
-SELECT TOP 10 Year, ROUND(AVG(Critic_Score), 2) AS Avg_Critic_Score
+SELECT TOP(10) Year, ROUND(AVG(Critic_Score), 2) AS Avg_Critic_Score
 FROM game_sales
 JOIN game_scores ON game_sales.Name = game_scores.Name
 GROUP BY Year
