@@ -38,6 +38,20 @@ limit 10
 ```
 
 Output:
+| ID	| Name	| Platform	| Publisher	| Developer	| Sold_Copies	| Year |
+| ---	| ---	| ---	| ---	| ---	| ---	| --- |
+| 1	| Wii Sports	| Wii	| Nintendo	| Nintendo EAD	| 82.9	| 2006 |
+| 2	| Super Mario Bros.	| NES	| Nintendo	| Nintendo EAD	| 40.24	| 1985 |
+| 3	| Counter-Strike: Global Offensive	| PC	| Valve	| Valve Corporation	| 40	| 2012 |
+| 4	| Mario Kart Wii	| Wii	| Nintendo	| Nintendo EAD	| 37.32	| 2008 |
+| 5	| PLAYERUNKNOWN'S BATTLEGROUNDS	| PC	| PUBG Corporation	| PUBG Corporation	| 36.6	| 2017 |
+| 6	| Minecraft	| PC	| Mojang	| Mojang AB	| 33.15	| 2010 |
+| 7	| Wii Sports Resort	| Wii	| Nintendo	| Nintendo EAD	| 33.13	| 2009 |
+| 8	| Pokemon Red / Green / Blue Version	| GB	| Nintendo	| Game Freak	| 31.38	| 1998 |
+| 9	| New Super Mario Bros.	| DS	| Nintendo	| Nintendo EAD	| 30.8	| 2006 |
+| 10 | New Super Mario Bros. Wii	| Wii	| Nintendo	| Nintendo EAD	| 30.3	| 2009 |
+
+
 
 
 And now let's check how many games have missing data for the scores.
