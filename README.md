@@ -103,15 +103,30 @@ Since the average is not the most important point of view when checking the top 
 
 Input:
 ```
-select year, round(avg(critic_score),2) as avg_critic_score, count(name) as num_games from game_sales
-join game_scores
-using (name)
-group by year
-having count(name) > 10
-order by avg_critic_score desc
-limit 10
+SELECT TOP 10 
+    Year, 
+    ROUND(AVG(Critic_Score), 2) AS Avg_Critic_Score, 
+    COUNT(game_sales.Name) AS Num_Games
+FROM game_sales
+JOIN game_scores ON game_sales.Name = game_scores.Name
+GROUP BY Year
+HAVING COUNT(game_sales.Name) > 10
+ORDER BY Avg_Critic_Score DESC;
 ```
 
 Output:
+| Year	| Avg_Critic_Score	| Num_Games |
+| ---	| ---	| --- |
+| 1984	| 9.5	| 12 |
+| 1992	| 8.68	| 56 |
+| 1990	| 8.54	| 30 |
+| 1991	| 8.32	| 39 |
+| 2020	| 8.26	| 13 |
+| 1994	| 8.04	| 131 |
+| 2019	| 7.97	| 95 |
+| 1985	| 7.84	| 19 |
+| 1993	| 7.72	| 94 |
+| 2013	| 7.6	| 1638 |
+
 
 
